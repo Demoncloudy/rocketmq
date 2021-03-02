@@ -145,7 +145,7 @@ public class NamesrvStartup {
             controller.shutdown();
             System.exit(-3);
         }
-
+        // JVM关闭时候会执行
         Runtime.getRuntime().addShutdownHook(new ShutdownHookThread(log, new Callable<Void>() {
             @Override
             public Void call() throws Exception {
@@ -153,7 +153,7 @@ public class NamesrvStartup {
                 return null;
             }
         }));
-
+        // 启动
         controller.start();
 
         return controller;
